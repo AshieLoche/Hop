@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Coins
+  - FireTrap
   layers:
   - Default
   - TransparentFX
@@ -47,9 +49,15 @@ TagManager:
   - name: Floors
     uniqueID: 3968213429
     locked: 0
-  - name: Walls
-    uniqueID: 3324740705
+  - name: Traps
+    uniqueID: 2919707671
     locked: 0
   - name: Player
     uniqueID: 1711059705
+    locked: 0
+  - name: Coins
+    uniqueID: 1630846895
+    locked: 0
+  - name: Walls
+    uniqueID: 3324740705
     locked: 0
