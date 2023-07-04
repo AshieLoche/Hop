@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Coins
   - FireTrap
+  - HealthPotion
+  - SpeedPotion
   layers:
   - Default
   - TransparentFX
@@ -55,7 +57,7 @@ TagManager:
   - name: Player
     uniqueID: 1711059705
     locked: 0
-  - name: Coins
+  - name: Collectibles
     uniqueID: 1630846895
     locked: 0
   - name: Walls

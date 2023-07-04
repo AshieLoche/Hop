@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     //Counts coins collected
     private int coinCounter;
+    //Player health
+    public int healthPoints;
 
     //private enum SpriteOrientation
     //{
@@ -30,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        anim.SetTrigger("playerIdle");
     }
 
     // Update is called once per frame
@@ -94,6 +95,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("horizontal", movementInput.x);
         anim.SetFloat("vertical", movementInput.y);
         anim.SetFloat("speed", movementInput.sqrMagnitude);
+
+        //if(healthPoints <= 0 ) 
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void resetAnimation()
@@ -122,8 +128,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Coins"))
         {
-            Destroy(collision.gameObject);
             coinCounter++;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("HealthPotion"))
+        {
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("SpeedPotion"))
+        {
+            Transform col = collision.transform;
+            col.transform.position = new Vector2(999, 999);
         }
     }
 }

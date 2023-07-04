@@ -6,6 +6,9 @@ public class TrackManagerScript : MonoBehaviour
 {
     //Animator access our animator to play animation
     private Animator anim;
+    public PlayerMovement player;
+    public int trapDamage;
+    public bool isPlayerOnTop;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class TrackManagerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("IsActive", true);
+            isPlayerOnTop = true;
         }
     }
 
@@ -32,6 +36,13 @@ public class TrackManagerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("IsActive", false);
+            isPlayerOnTop = false;
         }
+    }
+
+    public void PlayerDamage()
+    {
+        if(isPlayerOnTop)
+            player.healthPoints -= trapDamage;
     }
 }
